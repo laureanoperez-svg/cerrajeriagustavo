@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cerrajería Gustavo 2 - Contáctenos</title>
+    <link rel="stylesheet" href="./css/normalize.css">
+    <link rel="stylesheet" href="./css/estilos.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <header>
+        Cerrajería Gustavo 2 - CG2
+    </header>
+
+    <div class="app-container">
+        
+        <!-- BARRA LATERAL (SIDEBAR CG2) -->
+        <aside class="sidebar">
+            <div class="logo-container">
+                <img src="./imagenes/logo-cg2.png" alt="CG2 Logo" class="sidebar-logo">
+            </div>
+
+            <nav class="sidebar-nav">
+                <div class="nav-card">
+                    <!-- Carpeta / Inicio: clientes-cg2 -->
+                    <a href="./index.html" class="nav-item" title="Gestión de Clientes">
+                        <img src="./imagenes/clientes-cg2.svg" alt="Clientes" class="nav-icon-img">
+                    </a>
+                    <!-- Personita / Nosotros: nosotros-cg2 -->
+                    <a href="./nosotros.html" class="nav-item" title="Nosotros">
+                        <img src="./imagenes/nosotros-cg2.svg" alt="Nosotros" class="nav-icon-img">
+                    </a>
+                    <!-- Candado / Contacto: llave-cg2 (Activo) -->
+                    <a href="./contactenos.html" class="nav-item active" title="Contáctenos">
+                        <img src="./imagenes/llave-cg2.svg" alt="Contáctenos" class="nav-icon-img">
+                    </a>
+                </div>
+            </nav>
+
+            <a href="#" class="sidebar-arrow">
+                <i class="fa-solid fa-arrow-right"></i>
+            </a>
+
+            <div class="sidebar-bottom">
+                <a href="#" class="settings-btn" title="Configuración">
+                    <i class="fa-solid fa-gear"></i>
+                </a>
+            </div>
+        </aside>
+
+        <!-- CONTENIDO PRINCIPAL -->
+        <main class="main-content">
+            
+            <!-- HEADER SUPERIOR -->
+            <header class="top-bar">
+                <div class="search-box">
+                    <i class="fa-solid fa-magnifying-glass search-icon"></i>
+                    <input type="text" placeholder="Buscar por Nombre, DNI, Patente...">
+                </div>
+
+                <div class="user-badge">
+                    <i class="fa-solid fa-user user-icon"></i>
+                    <span>Hola, Gustavo!</span>
+                </div>
+            </header>
+
+            <!-- SECCIÓN FORMULARIO DE CONTACTO CG2 -->
+            <section class="content-body">
+                <div class="section-header">
+                    <h2>Contáctenos</h2>
+                </div>
+
+                <div class="contact-card-cg2">
+                    <form action="mailto:info@cerrazeriagustavodos.com" method="post" id="form-contacto">
+                        <fieldset class="fieldset-cg2">
+                            <legend class="legend-cg2">Por favor, complete los campos solicitados</legend>
+                            
+                            <table class="tabla-formulario-cg2">
+                                <tr>
+                                    <td><label for="nombre">Nombre*:</label></td>
+                                    <td>
+                                        <input 
+                                            type="text" 
+                                            placeholder="Nombre y apellido" 
+                                            name="nombre" 
+                                            id="nombre" 
+                                            class="input-cg2-form" 
+                                            required 
+                                        />
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td><label for="direccion">Dirección:</label></td>
+                                    <td>
+                                        <input 
+                                            type="text" 
+                                            placeholder="Calle y número" 
+                                            name="direccion" 
+                                            id="direccion" 
+                                            class="input-cg2-form" 
+                                        />
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td><label for="telefono">Teléfono:</label></td>
+                                    <td>
+                                        <input 
+                                            type="tel" 
+                                            placeholder="Sin 0 y sin 15" 
+                                            name="telefono" 
+                                            id="telefono" 
+                                            class="input-cg2-form" 
+                                        />
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td><label for="email">E-mail:</label></td>
+                                    <td>
+                                        <input 
+                                            type="email" 
+                                            placeholder="usuario@servidor" 
+                                            name="email" 
+                                            id="email" 
+                                            class="input-cg2-form" 
+                                        />
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td><label for="localidad">Localidad:</label></td>
+                                    <td>
+                                        <input 
+                                            type="text" 
+                                            placeholder="Ciudad o pueblo" 
+                                            name="localidad" 
+                                            id="localidad" 
+                                            class="input-cg2-form" 
+                                        />
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td><label for="provincia">Provincia:</label></td>
+                                    <td>
+                                        <input 
+                                            type="text" 
+                                            placeholder="Provincia" 
+                                            name="provincia" 
+                                            id="provincia" 
+                                            class="input-cg2-form" 
+                                        />
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td><label>Sexo:</label></td>
+                                    <td class="radio-group-cg2">
+                                        <label><input type="radio" name="sexo" id="sexo_m" value="Masculino" /> Masculino</label>
+                                        <label><input type="radio" name="sexo" id="sexo_f" value="Femenino" /> Femenino</label>
+                                        <label><input type="radio" name="sexo" id="sexo_s" value="Sin especificar" /> Sin especificar</label>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td><label for="fnac">Fecha de nacimiento:</label></td>
+                                    <td>
+                                        <input 
+                                            type="date" 
+                                            name="fnac" 
+                                            id="fnac" 
+                                            class="input-cg2-form" 
+                                        />
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td><label for="formapago">Forma de pago:</label></td>
+                                    <td>
+                                        <select name="formapago" id="formapago" class="select-cg2-form">
+                                            <option value="Efectivo">Efectivo</option>
+                                            <option value="Transferencia">Transferencia</option>
+                                            <option value="Tarjeta">Tarjeta</option>
+                                            <option value="Depósito">Depósito</option>
+                                            <option value="Rapipago / Pago Fácil">Rapipago / Pago Fácil</option>
+                                        </select>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td><label for="mensaje">Mensaje:</label></td>
+                                    <td>
+                                        <textarea 
+                                            name="mensaje" 
+                                            id="mensaje" 
+                                            placeholder="Escriba su mensaje aquí" 
+                                            class="textarea-cg2-form"></textarea>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td colspan="2" class="form-buttons-cell">
+                                        <input type="submit" value="Enviar" class="btn-modal btn-save" />
+                                        <input type="reset" value="Cancelar" class="btn-modal btn-cancel" />
+                                    </td>
+                                </tr>
+                            </table>
+                            <p class="form-note-cg2">* El asterisco indica que el campo es obligatorio.</p>
+                        </fieldset>
+                    </form>
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <footer>
+        <p>Cerrajería Gustavo 2 - Todos los derechos reservados - 2026</p>
+    </footer>
+</body>
+</html>

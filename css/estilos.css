@@ -1,0 +1,742 @@
+/* ==========================================================================
+   CERRAJERÍA GUSTAVO 2 (CG2) - HOJA DE ESTILOS GENERAL
+   ========================================================================== */
+
+:root {
+    --color-orange-main: #e88b23;
+    --color-orange-gradient: linear-gradient(135deg, #f7a038 0%, #d87a15 100%);
+    --color-dark-bg: #383838;
+    --color-card-bg: #4a4a4a;
+    --color-text-white: #ffffff;
+    --color-btn-green: #7ad151;
+    --color-btn-red: #f85353;
+    --color-bg-light: #f5f5f7;
+    --font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: var(--font-family);
+    background-color: var(--color-bg-light);
+    color: #333;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+/* ==========================================================================
+   HEADER Y MENÚ DE NAVEGACIÓN SUPERIOR (Agregado en los HTMLs)
+   ========================================================================== */
+
+header {
+    background: var(--color-orange-gradient);
+    color: var(--color-text-white);
+    text-align: center;
+    padding: 16px 20px;
+    font-size: 1.6rem;
+    font-weight: bold;
+    letter-spacing: 1px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+}
+
+.menu {
+    background-color: var(--color-dark-bg);
+    padding: 10px 0;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.contenedor {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.menu-flex {
+    list-style: none;
+    display: flex;
+    justify-content: center;
+    gap: 25px;
+}
+
+.menu-flex a {
+    color: var(--color-text-white);
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 1rem;
+    padding: 6px 16px;
+    border-radius: 20px;
+    transition: all 0.3s ease;
+}
+
+.menu-flex a:hover {
+    background-color: var(--color-orange-main);
+    color: #fff;
+}
+
+/* ==========================================================================
+   ESTRUCTURA DE APLICACIÓN (SIDEBAR + CONTENIDO PRINCIPAL)
+   ========================================================================== */
+
+.app-container {
+    display: flex;
+    flex: 1;
+    min-height: calc(100vh - 120px);
+}
+
+/* Barra lateral naranja (Sidebar CG2) */
+.sidebar {
+    width: 100px;
+    background: var(--color-orange-gradient);
+    border-top-right-radius: 35px;
+    border-bottom-right-radius: 35px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 25px 0;
+    position: relative;
+    box-shadow: 4px 0 15px rgba(0, 0, 0, 0.1);
+}
+
+.logo-container {
+    margin-bottom: 25px;
+}
+
+.sidebar-logo {
+    width: 60px;
+    height: auto;
+}
+
+.sidebar-nav {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+.nav-card {
+    background: rgba(255, 255, 255, 0.3);
+    backdrop-filter: blur(5px);
+    border-radius: 30px;
+    padding: 18px 10px;
+    display: flex;
+    flex-direction: column;
+    gap: 22px;
+    align-items: center;
+}
+
+.nav-item {
+    color: var(--color-dark-bg);
+    font-size: 1.5rem;
+    transition: transform 0.2s, color 0.2s;
+    text-decoration: none;
+}
+
+.nav-item.active,
+.nav-item:hover {
+    color: #fff;
+    transform: scale(1.15);
+}
+
+.sidebar-arrow {
+    background-color: rgba(255, 255, 255, 0.85);
+    color: var(--color-orange-main);
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: auto;
+    margin-bottom: 20px;
+    text-decoration: none;
+    font-size: 1rem;
+    transition: all 0.3s ease;
+}
+
+.sidebar-arrow:hover {
+    background-color: #fff;
+    transform: translateX(3px);
+}
+
+.sidebar-bottom {
+    margin-top: 10px;
+}
+
+.settings-btn {
+    color: var(--color-dark-bg);
+    font-size: 1.4rem;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.settings-btn:hover {
+    color: #fff;
+}
+
+/* Área de Contenido Principal */
+.main-content {
+    flex: 1;
+    padding: 30px 40px;
+    display: flex;
+    flex-direction: column;
+}
+
+/* Header superior interno (Buscador + Usuario) */
+.top-bar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 30px;
+}
+
+.search-box {
+    position: relative;
+    width: 55%;
+    max-width: 500px;
+}
+
+.search-icon {
+    position: absolute;
+    left: 16px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #888;
+    font-size: 1rem;
+}
+
+.search-box input {
+    width: 100%;
+    padding: 10px 20px 10px 45px;
+    border: 1px solid #ccc;
+    border-radius: 25px;
+    outline: none;
+    font-size: 0.95rem;
+    background: #fff;
+    box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.05);
+}
+
+.user-badge {
+    background: var(--color-orange-gradient);
+    color: #fff;
+    padding: 8px 20px;
+    border-radius: 25px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-weight: 600;
+    box-shadow: 0 3px 8px rgba(232, 139, 35, 0.3);
+}
+
+/* ==========================================================================
+   SECCIÓN Y TABLA GESTIÓN DE CLIENTES (index.html)
+   ========================================================================== */
+
+.content-body {
+    flex: 1;
+}
+
+.section-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.section-header h2 {
+    font-size: 1.7rem;
+    font-weight: 700;
+    color: #222;
+}
+
+.btn-primary {
+    background: var(--color-orange-gradient);
+    color: #fff;
+    border: none;
+    padding: 10px 22px;
+    border-radius: 25px;
+    font-size: 0.95rem;
+    font-weight: 600;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    box-shadow: 0 4px 10px rgba(232, 139, 35, 0.3);
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.btn-primary:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 14px rgba(232, 139, 35, 0.4);
+}
+
+.table-container {
+    overflow-x: auto;
+}
+
+.tabla-cg2 {
+    width: 100%;
+    border-collapse: separate;
+    border-spacing: 0 10px;
+}
+
+.tabla-cg2 th {
+    background-color: var(--color-dark-bg);
+    color: var(--color-text-white);
+    padding: 14px;
+    text-align: center;
+    font-size: 0.85rem;
+    font-weight: 700;
+    letter-spacing: 0.5px;
+}
+
+.tabla-cg2 th:first-child { border-top-left-radius: 8px; border-bottom-left-radius: 8px; }
+.tabla-cg2 th:last-child { border-top-right-radius: 8px; border-bottom-right-radius: 8px; }
+
+.tabla-cg2 td {
+    background-color: var(--color-card-bg);
+    color: var(--color-text-white);
+    padding: 14px;
+    text-align: center;
+    font-size: 0.9rem;
+}
+
+.tabla-cg2 tr td:first-child { border-top-left-radius: 8px; border-bottom-left-radius: 8px; }
+.tabla-cg2 tr td:last-child { border-top-right-radius: 8px; border-bottom-right-radius: 8px; }
+
+.actions-cell {
+    display: flex;
+    justify-content: center;
+    gap: 12px;
+}
+
+.btn-action {
+    background: none;
+    border: none;
+    color: var(--color-text-white);
+    font-size: 1.1rem;
+    cursor: pointer;
+    transition: color 0.2s, transform 0.2s;
+}
+
+.btn-action:hover {
+    transform: scale(1.2);
+}
+
+.btn-action.edit:hover { color: #f7a038; }
+.btn-action.delete:hover { color: var(--color-btn-red); }
+
+/* ==========================================================================
+   VENTANAS MODALES (NUEVO, EDITAR, ELIMINAR CLIENTE)
+   ========================================================================== */
+
+.modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: rgba(0, 0, 0, 0.4);
+    display: none;
+    align-items: center;
+    justify-content: center;
+    z-index: 999;
+}
+
+.modal-overlay.active {
+    display: flex;
+}
+
+.modal-card {
+    background: linear-gradient(180deg, #e6e6e6 0%, #cccccc 100%);
+    border: 3px solid #111;
+    border-radius: 25px;
+    width: 100%;
+    max-width: 480px;
+    padding: 25px 35px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+}
+
+.modal-card h3 {
+    text-align: center;
+    font-size: 1.6rem;
+    font-weight: 800;
+    margin-bottom: 20px;
+    color: #111;
+}
+
+.form-group {
+    margin-bottom: 12px;
+}
+
+.form-group label {
+    display: block;
+    font-size: 0.8rem;
+    font-weight: 700;
+    margin-bottom: 4px;
+    color: #222;
+}
+
+.form-group input {
+    width: 100%;
+    padding: 8px 14px;
+    border-radius: 20px;
+    border: 1px solid #aaa;
+    outline: none;
+    background: #e8e8e8;
+    font-size: 0.9rem;
+}
+
+.form-group input.error {
+    border: 1.5px solid var(--color-btn-red);
+}
+
+.error-msg {
+    display: none;
+    color: var(--color-btn-red);
+    font-size: 0.75rem;
+    font-weight: bold;
+    margin-top: 3px;
+    margin-left: 10px;
+}
+
+.modal-footer-note {
+    font-size: 0.75rem;
+    font-weight: bold;
+    color: #444;
+    margin-top: 8px;
+}
+
+.modal-actions {
+    display: flex;
+    justify-content: space-around;
+    margin-top: 20px;
+}
+
+.btn-modal {
+    border: none;
+    padding: 10px 30px;
+    border-radius: 25px;
+    font-size: 1rem;
+    font-weight: 700;
+    cursor: pointer;
+    color: #fff;
+    transition: transform 0.2s, opacity 0.2s;
+}
+
+.btn-save { background-color: var(--color-btn-green); }
+.btn-cancel { background-color: var(--color-btn-red); }
+
+.btn-modal:hover {
+    transform: translateY(-2px);
+    opacity: 0.9;
+}
+
+/* Modal Eliminar Especial Naranja Flotante */
+.modal-delete-card {
+    background: var(--color-orange-gradient);
+    border: 2px solid #333;
+    text-align: center;
+}
+
+.modal-delete-card h3 { color: #111; }
+
+.delete-confirm-text {
+    font-size: 1.1rem;
+    color: #111;
+    margin: 15px 0 25px;
+}
+
+/* ==========================================================================
+   ESTILOS DE NOSOTROS (nosotros.html)
+   ========================================================================== */
+
+.info-card-cg2 {
+    background: #fff;
+    border-radius: 15px;
+    padding: 30px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+}
+
+.info-block h3 {
+    color: var(--color-orange-main);
+    margin-bottom: 15px;
+    font-size: 1.3rem;
+}
+
+.info-block p {
+    line-height: 1.6;
+    margin-bottom: 12px;
+    color: #444;
+}
+
+.divider-cg2 {
+    border: 0;
+    height: 1px;
+    background: #eee;
+    margin: 25px 0;
+}
+
+.dl-cg2 dt {
+    font-weight: 700;
+    color: var(--color-dark-bg);
+    margin-top: 10px;
+}
+
+.dl-cg2 dd {
+    margin-left: 0;
+    margin-bottom: 10px;
+    color: #666;
+}
+
+/* ==========================================================================
+   ESTILOS DE CONTACTO (contactenos.html)
+   ========================================================================== */
+
+.contact-card-cg2 {
+    background: #fff;
+    border-radius: 15px;
+    padding: 25px 35px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+}
+
+.fieldset-cg2 {
+    border: 1px solid #ddd;
+    border-radius: 12px;
+    padding: 20px 25px;
+}
+
+.legend-cg2 {
+    font-weight: bold;
+    color: var(--color-orange-main);
+    padding: 0 10px;
+}
+
+.tabla-formulario-cg2 {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.tabla-formulario-cg2 td {
+    padding: 8px 10px;
+    vertical-align: middle;
+}
+
+.tabla-formulario-cg2 td:first-child {
+    width: 25%;
+    font-weight: 600;
+    color: #444;
+}
+
+.input-cg2-form,
+.select-cg2-form,
+.textarea-cg2-form {
+    width: 100%;
+    padding: 8px 14px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    font-size: 0.9rem;
+    outline: none;
+}
+
+.textarea-cg2-form {
+    height: 80px;
+    resize: vertical;
+}
+
+.radio-group-cg2 {
+    display: flex;
+    gap: 15px;
+}
+
+.form-buttons-cell {
+    text-align: center;
+    padding-top: 15px !important;
+}
+
+.form-note-cg2 {
+    font-size: 0.8rem;
+    color: #777;
+    margin-top: 10px;
+}
+
+/* ==========================================================================
+   ESTILOS DE LOGIN Y REGISTRO (login.html Y registro.html)
+   ========================================================================== */
+
+.login-body {
+    background-color: #f0f0f0;
+}
+
+.login-container {
+    display: flex;
+    max-width: 900px;
+    margin: 40px auto;
+    background: #fff;
+    border-radius: 25px;
+    overflow: hidden;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+}
+
+.login-left-panel {
+    flex: 1;
+    background: var(--color-orange-gradient);
+    padding: 35px;
+    color: #fff;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.brand-header {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.brand-logo { width: 40px; }
+
+.brand-url {
+    font-size: 0.8rem;
+    font-weight: bold;
+    letter-spacing: 0.5px;
+}
+
+.hero-subtitle {
+    font-style: italic;
+    font-size: 0.9rem;
+    margin-bottom: 8px;
+}
+
+.hero-title {
+    font-size: 2rem;
+    font-weight: 800;
+    line-height: 1.2;
+}
+
+.decorative-circle {
+    width: 40px;
+    height: 40px;
+    background: rgba(255, 255, 255, 0.85);
+    color: var(--color-orange-main);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    align-self: flex-end;
+}
+
+.login-right-panel {
+    flex: 1;
+    padding: 45px 35px;
+}
+
+.login-welcome {
+    text-align: center;
+    font-size: 1.7rem;
+    color: var(--color-orange-main);
+    font-weight: 800;
+    margin-bottom: 25px;
+}
+
+.form-group-cg2 {
+    margin-bottom: 18px;
+}
+
+.form-group-cg2 label {
+    display: block;
+    font-weight: 700;
+    font-size: 0.85rem;
+    color: var(--color-btn-red);
+    margin-bottom: 4px;
+}
+
+.input-cg2 {
+    width: 100%;
+    padding: 10px 18px;
+    border-radius: 25px;
+    border: 1px solid #ccc;
+    outline: none;
+    font-size: 0.9rem;
+}
+
+.form-check-cg2 {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 15px;
+    font-size: 0.85rem;
+    color: #666;
+}
+
+.btn-ingresar {
+    width: 100%;
+    background-color: #a66a28;
+    color: #fff;
+    border: none;
+    padding: 11px;
+    border-radius: 25px;
+    font-weight: bold;
+    font-size: 0.95rem;
+    cursor: pointer;
+    margin-top: 10px;
+}
+
+.divider-container {
+    text-align: center;
+    margin: 20px 0 15px;
+    border-bottom: 1px solid #ddd;
+    line-height: 0.1em;
+}
+
+.divider-container span {
+    background: #fff;
+    padding: 0 10px;
+    color: #888;
+    font-size: 0.8rem;
+}
+
+.social-login {
+    display: flex;
+    justify-content: center;
+    gap: 12px;
+}
+
+.social-btn {
+    width: 55px;
+    height: 32px;
+    border: 1px solid #ccc;
+    border-radius: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #333;
+    text-decoration: none;
+}
+
+.text-orange {
+    color: var(--color-orange-main);
+    text-decoration: none;
+}
+
+/* ==========================================================================
+   FOOTER
+   ========================================================================== */
+
+footer {
+    background-color: #222;
+    color: #aaa;
+    text-align: center;
+    padding: 14px 0;
+    font-size: 0.85rem;
+    margin-top: auto;
+}
+.nav-icon-img {
+    width: 24px;
+    height: 24px;
+    object-fit: contain;
+    display: block;
+}

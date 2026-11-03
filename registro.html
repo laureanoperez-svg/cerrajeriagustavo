@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cerrajería Gustavo 2 - Registro de Usuario</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="./css/normalize.css">
+    <link rel="stylesheet" href="./css/estilos.css" />
+</head>
+<body class="login-body">
+
+    <div class="login-container">
+        <!-- COLUMNA IZQUIERDA (PANEL NARANJA DE MARCA) -->
+        <div class="login-left-panel">
+            <div class="brand-header">
+                <img src="./imagenes/logo-cg2.png" alt="CG2 Logo" class="brand-logo">
+                <span class="brand-url">CERRAJERIAGUSTAVODOS.COM</span>
+            </div>
+
+            <div class="hero-text-container">
+                <p class="hero-subtitle">Gestión interna de usuarios y personal</p>
+                <h1 class="hero-title">Creá tu cuenta de<br>Acceso al Sistema.</h1>
+            </div>
+
+            <div class="decorative-circle">
+                <i class="fa-solid fa-arrow-right"></i>
+            </div>
+        </div>
+
+        <!-- COLUMNA DERECHA (FORMULARIO DE REGISTRO) -->
+        <div class="login-right-panel">
+            <h2 class="login-welcome">REGISTRARSE</h2>
+            
+            <!-- Contenedor para mensajes de error o éxito -->
+            <div id="alerta"></div>
+
+            <form id="form-registro">
+                <div class="row">
+                    <div class="col-md-6 form-group-cg2">
+                        <label for="nombre">Nombre</label>
+                        <input type="text" class="input-cg2" id="nombre" name="nombre" placeholder="Ingrese su nombre" required>
+                    </div>
+
+                    <div class="col-md-6 form-group-cg2">
+                        <label for="apellido">Apellido</label>
+                        <input type="text" class="input-cg2" id="apellido" name="apellido" placeholder="Ingrese su apellido" required>
+                    </div>
+                </div>
+
+                <div class="form-group-cg2">
+                    <label for="usuario">Nombre de Usuario</label>
+                    <input type="text" class="input-cg2" id="usuario" name="usuario" placeholder="Cree su nombre de usuario" required>
+                </div>
+
+                <div class="form-group-cg2">
+                    <label for="password">Contraseña</label>
+                    <input type="password" class="input-cg2" id="password" name="password" placeholder="Cree su contraseña" required>
+                </div>
+
+                <button type="submit" class="btn-ingresar">REGISTRAR CUENTA</button>
+
+                <p class="text-center mt-3 link-registro">
+                    ¿Ya tenés cuenta?
+                    <a href="login.html" class="fw-bold text-orange">Iniciá sesión acá</a>
+                </p>
+
+                <div class="divider-container">
+                    <span>O continuar con</span>
+                </div>
+
+                <div class="social-login">
+                    <a href="#" class="social-btn"><i class="fa-regular fa-envelope"></i></a>
+                    <a href="#" class="social-btn"><i class="fa-brands fa-whatsapp"></i></a>
+                    <a href="#" class="social-btn"><i class="fa-brands fa-facebook-f"></i></a>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <footer>
+        <p>Cerrajería Gustavo 2 - Todos los derechos reservados - 2026</p>
+    </footer>
+
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+    ></script>
+    <script type="module" src="./controladores/registro-controlador.js"></script>
+</body>
+</html>

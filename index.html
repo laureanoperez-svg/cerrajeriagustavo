@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cerrajería Gustavo 2 - Gestión de Clientes</title>
+    <link rel="stylesheet" href="./css/normalize.css">
+    <link rel="stylesheet" href="./css/estilos.css">
+    <!-- Font Awesome para los íconos de las interfaces -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <header>
+        Cerrajería Gustavo 2 - CG2
+    </header>
+
+    <div class="app-container">
+        
+        <!-- BARRA LATERAL (SIDEBAR) -->
+        <aside class="sidebar">
+            <div class="logo-container">
+                <img src="./imagenes/logo-cg2.png" alt="CG2 Logo" class="sidebar-logo">
+            </div>
+
+            <nav class="sidebar-nav">
+                <div class="nav-card">
+                    <!-- Carpeta / Inicio: clientes-cg2 -->
+                    <a href="./index.html" class="nav-item active" title="Gestión de Clientes">
+                        <img src="./imagenes/clientes-cg2.svg" alt="Clientes" class="nav-icon-img">
+                    </a>
+                    <!-- Personita / Nosotros: nosotros-cg2 -->
+                    <a href="./nosotros.html" class="nav-item" title="Nosotros">
+                        <img src="./imagenes/nosotros-cg2.svg" alt="Nosotros" class="nav-icon-img">
+                    </a>
+                    <!-- Candado / Contacto: llave-cg2 -->
+                    <a href="./contactenos.html" class="nav-item" title="Contáctenos">
+                        <img src="./imagenes/llave-cg2.svg" alt="Contáctenos" class="nav-icon-img">
+                    </a>
+                </div>
+            </nav>
+
+            <a href="#" class="sidebar-arrow">
+                <i class="fa-solid fa-arrow-right"></i>
+            </a>
+
+            <div class="sidebar-bottom">
+                <a href="#" class="settings-btn" title="Configuración">
+                    <i class="fa-solid fa-gear"></i>
+                </a>
+            </div>
+        </aside>
+
+        <!-- CONTENIDO PRINCIPAL -->
+        <main class="main-content">
+            
+            <!-- HEADER SUPERIOR CON BUSCADOR Y PERFIL -->
+            <header class="top-bar">
+                <div class="search-box">
+                    <i class="fa-solid fa-magnifying-glass search-icon"></i>
+                    <input type="text" id="searchInput" placeholder="Buscar por Nombre, DNI, Patente..." onkeyup="filtrarTabla()">
+                </div>
+
+                <div class="user-badge">
+                    <i class="fa-solid fa-user user-icon"></i>
+                    <span>Hola, Gustavo!</span>
+                </div>
+            </header>
+
+            <!-- SECCIÓN GESTIÓN DE CLIENTES -->
+            <section class="content-body">
+                <div class="section-header">
+                    <h2>Gestión de Clientes</h2>
+                    <button class="btn-primary" onclick="abrirModal('modalNuevo')">
+                        <i class="fa-solid fa-plus"></i> Nuevo Cliente
+                    </button>
+                </div>
+
+                <!-- TABLA DE CLIENTES -->
+                <div class="table-container">
+                    <table class="tabla-cg2" id="tablaClientes">
+                        <thead>
+                            <tr>
+                                <th>CLIENTE</th>
+                                <th>TELÉFONO</th>
+                                <th>VEHÍCULO / DETALLE</th>
+                                <th>ÚLTIMO SERVICIO</th>
+                                <th>ACCIONES</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Juan Pérez</td>
+                                <td>341-5551234</td>
+                                <td>Ford Fiesta (Codificada)</td>
+                                <td>Copia con chip</td>
+                                <td class="actions-cell">
+                                    <button class="btn-action edit" onclick="abrirModalEditar('Juan Pérez', '341-5551234', 'Ford Fiesta (Codificada)', 'Copia con chip')">
+                                        <i class="fa-solid fa-pencil"></i>
+                                    </button>
+                                    <button class="btn-action delete" onclick="abrirModalEliminar('Juan Pérez')">
+                                        <i class="fa-solid fa-trash-can"></i>
+                                    </button>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>Consorcio Belgrano</td>
+                                <td>3476-420011</td>
+                                <td>Cerradura Llave Maestra</td>
+                                <td>Cambio de combinación</td>
+                                <td class="actions-cell">
+                                    <button class="btn-action edit" onclick="abrirModalEditar('Consorcio Belgrano', '3476-420011', 'Cerradura Llave Maestra', 'Cambio de combinación')">
+                                        <i class="fa-solid fa-pencil"></i>
+                                    </button>
+                                    <button class="btn-action delete" onclick="abrirModalEliminar('Consorcio Belgrano')">
+                                        <i class="fa-solid fa-trash-can"></i>
+                                    </button>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>María Gómez</td>
+                                <td>341-6667890</td>
+                                <td>Chevrolet Corsa</td>
+                                <td>Apertura auxilio</td>
+                                <td class="actions-cell">
+                                    <button class="btn-action edit" onclick="abrirModalEditar('María Gómez', '341-6667890', 'Chevrolet Corsa', 'Apertura auxilio')">
+                                        <i class="fa-solid fa-pencil"></i>
+                                    </button>
+                                    <button class="btn-action delete" onclick="abrirModalEliminar('María Gómez')">
+                                        <i class="fa-solid fa-trash-can"></i>
+                                    </button>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>Julián González</td>
+                                <td>3476-437902</td>
+                                <td>Chevrolet Cruze</td>
+                                <td>Arreglo del Levantavidrios</td>
+                                <td class="actions-cell">
+                                    <button class="btn-action edit" onclick="abrirModalEditar('Julián González', '3476-437902', 'Chevrolet Cruze', 'Arreglo del Levantavidrios')">
+                                        <i class="fa-solid fa-pencil"></i>
+                                    </button>
+                                    <button class="btn-action delete" onclick="abrirModalEliminar('Julián González')">
+                                        <i class="fa-solid fa-trash-can"></i>
+                                    </button>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <!-- ==================== MODALES EN HTML ==================== -->
+
+    <!-- MODAL 1: NUEVO CLIENTE -->
+    <div class="modal-overlay" id="modalNuevo">
+        <div class="modal-card">
+            <h3>Nuevo Cliente</h3>
+            <form id="formNuevoCliente" onsubmit="return validarNuevoCliente(event)">
+                <div class="form-group">
+                    <label>Nombre y Apellido*</label>
+                    <input type="text" id="nuevoNombre" placeholder="Julián González">
+                    <span class="error-msg" id="errNuevoNombre">*Campo obligatorio</span>
+                </div>
+
+                <div class="form-group">
+                    <label>Teléfono*</label>
+                    <input type="text" id="nuevoTelefono" placeholder="3476-437902">
+                    <span class="error-msg" id="errNuevoTelefono">*Campo obligatorio</span>
+                </div>
+
+                <div class="form-group">
+                    <label>Vehículo / Detalle*</label>
+                    <input type="text" id="nuevoVehiculo" placeholder="Chevrolet Cruze">
+                    <span class="error-msg" id="errNuevoVehiculo">*Campo obligatorio</span>
+                </div>
+
+                <div class="form-group">
+                    <label>Último Servicio*</label>
+                    <input type="text" id="nuevoServicio" placeholder="Arreglo del Levantavidrios">
+                    <span class="error-msg" id="errNuevoServicio">*Campo obligatorio</span>
+                </div>
+
+                <p class="modal-footer-note">*Campo obligatorio</p>
+
+                <div class="modal-actions">
+                    <button type="submit" class="btn-modal btn-save">Guardar</button>
+                    <button type="button" class="btn-modal btn-cancel" onclick="cerrarModal('modalNuevo')">Cancelar</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- MODAL 2: MODIFICAR CLIENTE -->
+    <div class="modal-overlay" id="modalEditar">
+        <div class="modal-card">
+            <h3>Modificar Cliente</h3>
+            <form id="formEditarCliente" onsubmit="return validarEditarCliente(event)">
+                <div class="form-group">
+                    <label>Nombre y Apellido*</label>
+                    <input type="text" id="editNombre">
+                    <span class="error-msg" id="errEditNombre">*Campo obligatorio</span>
+                </div>
+
+                <div class="form-group">
+                    <label>Teléfono*</label>
+                    <input type="text" id="editTelefono">
+                    <span class="error-msg" id="errEditTelefono">*Número inválido</span>
+                </div>
+
+                <div class="form-group">
+                    <label>Vehículo / Detalle*</label>
+                    <input type="text" id="editVehiculo">
+                    <span class="error-msg" id="errEditVehiculo">*Campo obligatorio</span>
+                </div>
+
+                <div class="form-group">
+                    <label>Último Servicio*</label>
+                    <input type="text" id="editServicio">
+                    <span class="error-msg" id="errEditServicio">*Campo obligatorio</span>
+                </div>
+
+                <p class="modal-footer-note">*Campo obligatorio</p>
+
+                <div class="modal-actions">
+                    <button type="submit" class="btn-modal btn-save">Guardar</button>
+                    <button type="button" class="btn-modal btn-cancel" onclick="cerrarModal('modalEditar')">Cancelar</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- MODAL 3: ELIMINAR CLIENTE -->
+    <div class="modal-overlay" id="modalEliminar">
+        <div class="modal-card modal-delete-card">
+            <h3>Eliminar Cliente</h3>
+            <p class="delete-confirm-text">¿Seguro que deseas dar de baja al cliente <strong id="deleteNombreCliente"></strong>?</p>
+            <div class="modal-actions">
+                <button type="button" class="btn-modal btn-save" onclick="confirmarEliminar()">Eliminar</button>
+                <button type="button" class="btn-modal btn-cancel" onclick="cerrarModal('modalEliminar')">Cancelar</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="./js/scripts.js"></script>
+</body>
+</html>
