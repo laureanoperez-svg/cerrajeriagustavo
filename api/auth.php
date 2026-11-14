@@ -3,7 +3,7 @@ require_once 'config.php';
 
 function validarToken($rolesPermitidos = []) {
     $headers = getallheaders();
-    $authHeader = $headers['Autorization'] ?? $headers['autorization'] ?? '';
+    $authHeader = $headers['Authorization'] ?? $headers['authorization'] ?? $headers['Autorization'] ?? $_SERVER['HTTP_AUTHORIZATION'] ?? '';
 
     if(!preg_match('/bearer\s(\S+)/', $authHeader, $matches)) {
         http_response_code(401);
@@ -43,7 +43,7 @@ function validarToken($rolesPermitidos = []) {
     }
 
     // Verificar expiración
-    $payloadData = json_encode(base64_decode($payload), true);
+    $payloadData = json_decode(base64_decode($payload), true);
     if(isset($payloadData['exp']) && $payloadData['exp'] < time()) {
         http_response_code(401);
         echo json_encode([

@@ -1,4 +1,4 @@
-import { registrar } from "../modelos/auth"
+import { registrar } from "../modelos/auth.js";
 
 //Elementos del DOM
 const formRegistro = document.querySelector('#form-registro');

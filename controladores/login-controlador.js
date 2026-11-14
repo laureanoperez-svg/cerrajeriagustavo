@@ -1,4 +1,4 @@
-import { login } from "../modelos/auth"
+import { login } from "../modelos/auth.js";
 
 //Elementos del DOM
 const formLogin = document.querySelector('#form-login');
@@ -20,12 +20,12 @@ const inicializarEventos = () => {
             if (respuesta.success) {
                 mostrarAlerta('¡Autenticación exitosa! Redirigiendo...', 'success');
 
-                // Redireccionamoa a la lista de productos
+                // Redireccionamos a la pantalla principal de clientes
                 setTimeout(() => {
-                    window.location.href = 'productos.html';
-                }, 1200);
+                    window.location.href = 'index.html';
+                }, 1000);
             } else {
-                mostrarAlerta(respuesta.message || 'Credenciales incorrectas', 'danger');
+                mostrarAlerta(respuesta.message || 'Usuario o contraseña son incorrectos.', 'danger');
             }
         } catch (error) {
             console.error('Error al iniciar sesión', error);

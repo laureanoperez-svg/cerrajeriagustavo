@@ -40,7 +40,7 @@ export const login = async (datosForm) => {
 };
 
 export const logout = () => {
-    sessionStorage.remove.Item('jwt_token');
+    sessionStorage.removeItem('jwt_token');
     sessionStorage.removeItem('usuario_info');
-    window.location.reload();
+    window.location.href = 'login.html';
 }

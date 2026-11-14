@@ -18,7 +18,7 @@
         <!-- BARRA LATERAL (SIDEBAR CG2) -->
         <aside class="sidebar">
             <div class="logo-container">
-                <img src="./imagenes/logo-cg2.png" alt="CG2 Logo" class="sidebar-logo">
+                <img src="./api/logo.php" alt="CG2 Logo" class="sidebar-logo">
             </div>
 
             <nav class="sidebar-nav">
@@ -38,9 +38,10 @@
                 </div>
             </nav>
 
-            <a href="#" class="sidebar-arrow">
+            <!-- Flecha de adorno estilizada (diseño visual de la página) -->
+            <div class="sidebar-arrow" title="Cerrajería Gustavo 2" aria-hidden="true">
                 <i class="fa-solid fa-arrow-right"></i>
-            </a>
+            </div>
 
             <div class="sidebar-bottom">
                 <a href="#" class="settings-btn" title="Configuración">
@@ -59,10 +60,11 @@
                     <input type="text" placeholder="Buscar por Nombre, DNI, Patente...">
                 </div>
 
-                <div class="user-badge">
+                <!-- Botón de usuario para ingresar al login o registro -->
+                <a href="./login.html" class="user-badge" title="Iniciar sesión o Registrarse">
                     <i class="fa-solid fa-user user-icon"></i>
-                    <span>Hola, Gustavo!</span>
-                </div>
+                    <span>¡Hola, Gustavo!</span>
+                </a>
             </header>
 
             <!-- SECCIÓN FORMULARIO DE CONTACTO CG2 -->
@@ -209,5 +211,13 @@
     <footer>
         <p>Cerrajería Gustavo 2 - Todos los derechos reservados - 2026</p>
     </footer>
+
+    <script>
+        document.getElementById('form-contacto').addEventListener('submit', function(e) {
+            e.preventDefault();
+            alert('¡Gracias por contactarte con Cerrajería Gustavo 2! Tu consulta ha sido enviada con éxito.');
+            this.reset();
+        });
+    </script>
 </body>
 </html>

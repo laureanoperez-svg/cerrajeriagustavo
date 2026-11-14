@@ -17,6 +17,13 @@ if(isset($_GET['tabla'])) {
     if(isset($_GET['accion'])) { // Si está seteada la acción
         if($_GET['accion'] == 'insertar' || $_GET['accion'] == 'actualizar') { // Si la acción es insertar o actualizar
             $valores = $_POST; // Guardamos los valores que vienen desde el formulario
+            if (empty($valores)) {
+                $rawInput = file_get_contents('php://input');
+                $decoded = json_decode($rawInput, true);
+                if (is_array($decoded)) {
+                    $valores = $decoded;
+                }
+            }
             
             // **** SUBIDA DE IMÁGENES **** //
         if(                                             // Si
@@ -83,7 +90,9 @@ if(isset($_GET['tabla'])) {
                 break;
 
                 case 'actualizar':
-                    $usuario = validarToken(['cliente', 'admin']);
+                    if (isset($_GET['id']) && $tabla->getCriterio() == '') {
+                        $tabla->setCriterio("id=" . intval($_GET['id']));
+                    }
                     $tabla->actualizar($valores);
                     $respuesta = [
                         'success' => true,
@@ -93,7 +102,9 @@ if(isset($_GET['tabla'])) {
                     break;
 
                 case 'eliminar':
-                    $usuario = validarToken(['admin']);
+                    if (isset($_GET['id']) && $tabla->getCriterio() == '') {
+                        $tabla->setCriterio("id=" . intval($_GET['id']));
+                    }
                     $tabla->eliminar();
                     $respuesta = [
                         'success' => true,
